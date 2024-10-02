@@ -13,12 +13,15 @@ public class Main {
 
             while (true) {
                 System.out.println("Введите скорость машины №" + i + ":");
-                speed = scanner.nextInt();
-                if (speed < 0 || speed > 250) {
-                    System.out.println("Неправильная скорость");
+                if (scanner.hasNextInt()) {
+                    speed = scanner.nextInt();
+                    if (speed > 0 && speed <= 250) {
+                        break;
+                    }
                 } else {
-                    break;
+                    scanner.next();
                 }
+                System.out.println("Неправильная скорость");
             }
 
             Car car = new Car(name, speed);
